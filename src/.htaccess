@@ -1,0 +1,8 @@
+# prevents listing of files and directories
+Options -Indexes
+
+# redirect all requests to the index.php
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]

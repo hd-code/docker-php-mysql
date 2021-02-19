@@ -1,6 +1,6 @@
 # PHP-Server (Apache) and MySQL
 
-Run a PHP server and a MySQL database by using Docker.
+Run a PHP server and a MySQL database by using Docker. A sample website is provided with this repository.
 
 ## Requirements
 
@@ -8,13 +8,21 @@ Run a PHP server and a MySQL database by using Docker.
 
 ## Installation
 
-Simply start docker, go to this directory in the command line and then type:
+**Docker Desktop** has to be running.
+
+Now, you can build the Docker Image by running:
+
+```sh
+docker-compose build
+```
+
+Start the Servers by executing:
 
 ```sh
 docker-compose up
 ```
 
-Docker will now install and run the containers.
+Docker will now run the containers.
 
 ## Usage
 
@@ -26,12 +34,7 @@ Access the php website at <http://localhost:8080>.
 
 ### MySQL
 
-To access the MySQL database in php or any database management system use the following configuration:
-
-- `host: mysql` (localhost does not work in docker clusters)
-- `port: 3306` (the default mysql port; can be omitted in most cases)
-- `user: root`
-- `password: test`
+To access the MySQL database in php or any database management system, use the login data as stated in `docker-compose.yml`
 
 ### PHPMyAdmin
 
@@ -39,4 +42,4 @@ The database can also be accessed and managed with PHPMyAdmin.
 
 Simply go to <http://localhost:8081>.
 
-Again, `user: root` and `password: test`.
+Username and password can be found in `docker-compose.yml`

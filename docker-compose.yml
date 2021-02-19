@@ -1,24 +1,28 @@
 version: '3.8'
 services:
-  www:
+  web:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - 8080:80
     volumes:
-      - ./php:/var/www/html/
+      - ./src:/var/www/html/
     links:
-      - mysql:localhost
-  mysql:
-    image: mysql:8.0.22
-    ports:
-      - 3306:3306
+      - db:localhost
+  db:
+    image: mysql:5.7
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 'test'
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./data:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.0.0
     links:
-      - mysql:db
+      - db:db
     ports:
       - 8081:80
