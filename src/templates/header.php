@@ -7,17 +7,12 @@
 
     <title><?=$title ?? 'Webseite'?></title>
 
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
 
-<header class="flex stretch justify">
+<header class="flex stretch justify wrap no-wrap-m bg-green c-white">
     <a href="/">Logo/Home</a>
 
-    <nav>
-        <a class="p-4" href="/about">Über uns</a>
-        <a class="p-4" href="/legal">Impressum/Datenschutz</a>
-    </nav>
+    <?php include 'templates/nav.php' ?>
 </header>
-
-<div class="mh-content p-4">

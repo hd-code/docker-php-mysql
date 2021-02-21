@@ -1,18 +1,11 @@
 <?php
 
-function route() {
-    $uri = $_SERVER['REQUEST_URI'];
-    $page = trim($uri, '/');
-    $pagePath = getPagePath($page);
-    if (file_exists($pagePath)) {
-        include $pagePath;
-    } else {
-        include getPagePath('404');
-    }
-}
+require_once 'lib/parsedown/Parsedown.php';
 
-function getPagePath($page) {
-    return 'pages/' . $page . '.php';
-}
+require_once 'core/analytics.php';
+require_once 'core/routing.php';
 
+// -----------------------------------------------------------------------------
+
+saveRequestData();
 route();
